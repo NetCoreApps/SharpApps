@@ -4,7 +4,7 @@ services:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
-    command: run bare --release
+    command: open bare --release
     ports:
       - "5000"
     environment:
@@ -15,7 +15,7 @@ services:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
-    command: run blog --release
+    command: open blog --release
     ports:
       - "5000"
     environment:
@@ -66,3 +66,8 @@ services:
       VIRTUAL_HOST: rockwind.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: rockwind.web-app.io
+
+networks:
+  default:
+    name: deploy
+    external: true
