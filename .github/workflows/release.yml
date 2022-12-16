@@ -103,7 +103,7 @@ jobs:
           port: 22
           key: ${{ secrets.DEPLOY_KEY }}
           source: "docker-compose.yml"
-          target: "~/.deploy/sharpapps-docker-compose.yml"
+          target: "~/sharpapps/"
 
       # Deploy Docker image with ServiceStack application using `docker compose up` remotely
       - name: remote docker compose up via ssh
@@ -119,5 +119,5 @@ jobs:
           envs: APPTOKEN,USERNAME
           script: |
             echo $APPTOKEN | docker login ghcr.io -u $USERNAME --password-stdin
-            docker compose -f ~/.deploy/sharpapps-docker-compose.yml pull
-            docker compose -f ~/.deploy/sharpapps-docker-compose.yml up -d
+            docker compose -f ~/sharpapps/docker-compose.yml pull
+            docker compose -f ~/sharpapps/docker-compose.yml up -d

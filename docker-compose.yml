@@ -52,9 +52,9 @@ services:
     ports:
       - "5000"
     environment:
-      VIRTUAL_HOST: redis.web-app.io
+      VIRTUAL_HOST: redis-html.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
-      DEPLOY_API: redis.web-app.io
+      DEPLOY_API: redis-html.web-app.io
   rockwind:
     image: ghcr.io/sharpapps:latest
     restart: always
