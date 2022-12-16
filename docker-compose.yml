@@ -1,7 +1,7 @@
 ﻿version: "3.9"
 services:
   bare:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: run bare --release
@@ -12,7 +12,7 @@ services:
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: bare.web-app.io
   blog:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: run blog --release
@@ -23,7 +23,7 @@ services:
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: blog.web-app.io
   chat:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: app.release.settings open chat --release
@@ -34,7 +34,7 @@ services:
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: chat.web-app.io
   plugins:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open plugins --release
@@ -45,7 +45,7 @@ services:
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: plugins.web-app.io
   redis:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open redis --release
@@ -56,7 +56,7 @@ services:
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: redis-html.web-app.io
   rockwind:
-    image: ghcr.io/sharpapps:latest
+    image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open rockwind --release
