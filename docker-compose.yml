@@ -5,61 +5,79 @@ services:
     restart: always
     network_mode: bridge
     command: open bare --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: bare.web-app.io
       LETSENCRYPT_HOST: bare.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: bare.web-app.io
+      VIRTUAL_PORT: 5000
   blog:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open blog --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: blog.web-app.io
       LETSENCRYPT_HOST: blog.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: blog.web-app.io
+      VIRTUAL_PORT: 5000
   chat:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: app.release.settings open chat --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: chat.web-app.io
       LETSENCRYPT_HOST: chat.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: chat.web-app.io
+      VIRTUAL_PORT: 5000
   plugins:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open plugins --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: plugins.web-app.io
       LETSENCRYPT_HOST: plugins.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: plugins.web-app.io
+      VIRTUAL_PORT: 5000
   redis:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open redis --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: redis-html.web-app.io
       LETSENCRYPT_HOST: redis-html.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: redis-html.web-app.io
+      VIRTUAL_PORT: 5000
   rockwind:
     image: ghcr.io/netcoreapps/sharpapps:latest
     restart: always
     network_mode: bridge
     command: open rockwind --release
+    ports:
+      - "5000"
     environment:
       VIRTUAL_HOST: rockwind-sqlite.web-app.io
       LETSENCRYPT_HOST: rockwind-sqlite.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
       DEPLOY_API: rockwind-sqlite.web-app.io
+      VIRTUAL_PORT: 5000
 
 networks:
   default:
