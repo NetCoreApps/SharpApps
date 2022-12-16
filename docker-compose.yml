@@ -73,10 +73,10 @@ services:
     ports:
       - "5000"
     environment:
-      VIRTUAL_HOST: rockwind.web-app.io
-      LETSENCRYPT_HOST: rockwind.web-app.io
+      VIRTUAL_HOST: rockwind-sqlite.web-app.io
+      LETSENCRYPT_HOST: rockwind-sqlite.web-app.io
       LETSENCRYPT_EMAIL: team@servicestack.com
-      DEPLOY_API: rockwind.web-app.io
+      DEPLOY_API: rockwind-sqlite.web-app.io
       VIRTUAL_PORT: 5000
 
 networks:
