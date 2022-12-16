@@ -1,0 +1,68 @@
+﻿version: "3.9"
+services:
+  bare:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: run bare --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: bare.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: bare.web-app.io
+  blog:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: run blog --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: blog.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: blog.web-app.io
+  chat:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: app.release.settings open chat --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: chat.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: chat.web-app.io
+  plugins:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: open plugins --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: plugins.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: plugins.web-app.io
+  redis:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: open redis --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: redis.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: redis.web-app.io
+  rockwind:
+    image: ghcr.io/sharpapps:latest
+    restart: always
+    network_mode: bridge
+    command: open rockwind --release
+    ports:
+      - "5000"
+    environment:
+      VIRTUAL_HOST: rockwind.web-app.io
+      LETSENCRYPT_EMAIL: team@servicestack.com
+      DEPLOY_API: rockwind.web-app.io
